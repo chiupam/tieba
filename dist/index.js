@@ -255,7 +255,8 @@ const notify_1 = require("./notify");
             yield (0, notify_1.sendNotification)(summaryText);
         }
         else if (process.env.ENABLE_NOTIFY === 'true') {
-            console.log('ℹ️ 签到全部成功，跳过通知发送');
+            yield (0, notify_1.sendNotification)(summaryText);
+            console.log('ℹ️ 签到全部成功，已发送通知');
         }
         else {
             console.log('ℹ️ 通知功能未启用，跳过通知发送');
