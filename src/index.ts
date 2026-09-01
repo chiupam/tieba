@@ -303,7 +303,8 @@ interface TiebaTrackInfo {
       console.log('▶️ 步骤5: 发送通知 (由于签到失败而触发)');
       await sendNotification(summaryText);
     } else if (process.env.ENABLE_NOTIFY === 'true') {
-      console.log('ℹ️ 签到全部成功，跳过通知发送');
+      await sendNotification(summaryText);
+      console.log('ℹ️ 签到全部成功，已发送通知');
     } else {
       console.log('ℹ️ 通知功能未启用，跳过通知发送');
     }
